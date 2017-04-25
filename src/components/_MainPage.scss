@@ -1,0 +1,64 @@
+.main-page {
+    
+    .cladogram-parent {
+        height: calc( 100% - 82px );
+        overflow: auto;
+    }
+    
+    .search-field {
+        position: absolute;
+        right: 30px;
+        top: 35px;
+        padding: 4px;
+        background-color: white;
+        border-radius: $common_border_radius;
+        
+        input {
+            border: 0px;
+            outline: none;
+            font-size: 18px;
+            font-family: 'handwriting';
+            color: $dark_background;
+        }
+    }
+    
+    .button-bar {
+    
+        @include flexbox();
+        @include justify-content( center );
+        padding: 4px;
+        position: relative;
+
+        [class^="icon-"], [class*=" icon-"] {
+
+            font-size: 48px;
+            color: $text_color;
+            opacity: 0.8;
+            border: 1px solid $dark_background;
+            cursor: pointer;
+            padding-left: 8px;
+            padding-right: 8px;
+            border-radius: $common_border_radius;
+
+            &:hover {
+                opacity: 1.0;
+                border: 1px solid $text_color;
+            }
+
+            &.right {
+                margin-left: 100px;
+            }
+
+            &.left {
+                margin-right: 100px;
+            }      
+
+            &.selected {
+                background-color: $text_color;
+                color: $dark_background;
+                opacity: 1.0;
+                border: 1px solid $text_color;
+            }
+        }
+    }
+}

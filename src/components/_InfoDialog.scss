@@ -1,0 +1,117 @@
+.info-dialog {
+    
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: 24px;
+    
+    border: 1px solid $dark_background;
+    border-radius: $common_border_radius;
+    padding: 12px;
+    background-color: $light_background;
+    z-index: 90;
+    
+    .title-text {
+        color: $dark_background;
+    }
+    
+    .icon-minus {
+        color: $dark_background;
+        position: absolute;
+        right: 8px;
+        top: 4px;
+        cursor: pointer;
+        
+        &:hover {
+            color: $brown;
+        }
+    }
+    
+    .info-body {
+        width: 100%;
+        height: calc( 100% - 40px);
+        border-radius: $common_border_radius;
+        
+        @include flexbox();
+        
+        .info-nav {
+            width: 60px;
+            margin-top: 12px;
+            text-align: center;
+            height: 100%;
+            
+            .nav-item {
+                padding: 4px;
+                color: $dark_background;
+                border-left: 1px solid $dark_background;
+                border-top: 1px solid $dark_background;
+                border-bottom: 1px solid $dark_background;
+                border-top-left-radius: $common_border_radius;
+                border-bottom-left-radius: $common_border_radius;
+                cursor: pointer;
+                
+                &.selected {
+                    color: $light_background;
+                    background-color: $dark_background;
+                    
+                    &:hover {
+                        color: $dark_background;
+                    }
+                }
+                
+                &:hover {
+                    background-color: $drab;
+                }
+            }
+        }
+        
+        .info-text {
+            background-color: white;
+            border-radius: $common_border_radius;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+            margin: 12px;
+            margin-left: 0px;
+            padding-left: 12px;
+            padding-right: 12px;
+            border-top-left-radius: 0px;
+            border: 1px solid $dark_background;
+            
+            div, p {
+                color: $dark_background;
+                font-size: 18px;
+                font-family: sans-serif;
+            }
+        }
+        
+        .image-viewer {
+            
+            .full-view {
+                width: 100%;
+                height: calc( 100% - 110px);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+            
+            .tape {
+                @include flexbox();
+                @include flex-wrap(wrap);
+                height: 110px;
+                overflow: auto;
+                
+                .image-thumbnail {
+                    width: 100px;
+                    height: 100px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    border: 2px solid $light_background;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

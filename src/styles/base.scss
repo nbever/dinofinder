@@ -1,0 +1,55 @@
+$primary_color: blue;
+$text_color: white;
+$light_background: #E7E8E2;
+$dark_background: #576800;
+$highlight: #FFF26E;
+$brown: #C2B000;
+$lime: #83EA2D;
+$drab: #CAD78F;
+
+$common_border_radius: 6px;
+
+@import 'mixins';
+@import 'fonts/fonts';
+@import 'fonts/glyphs';
+@import 'main';
+
+@import '../components/MainPage';
+@import '../components/clad';
+@import '../components/InfoDialog';
+@import '../components/fossil_map';
+
+body, div, p {
+    color: $text_color;
+    background-color: transparent;
+    font: 32px 'Dinosaur';
+}
+
+.main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $dark_background;
+}
+
+h1 {
+    font: 24px 'handwriting';
+    color: $dark_background;
+    padding: 0px;
+    margin: 0px;
+}
+
+.handwriting {
+    font: 32px 'Dinosaur';
+}
+
+.btn {
+    padding: 12px;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: red;
+    font-weight: bold;
+    cursor: pointer;
+}

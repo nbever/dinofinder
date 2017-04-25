@@ -1,0 +1,33 @@
+{
+  "name": "DinoFinder",
+  "version": "0.0.1",
+  "description": "Web mashup for dinosaur inforamation",
+  "author": "Nate Bever",
+  "dependencies": {
+    "webpack": "",
+    "webpack-dev-server": "",
+    "html-webpack-plugin": "",
+    "babel-core": "",
+    "babel-loader": "",
+    "babel-preset-env": "",
+    "babel-preset-react": "",
+    "babel-preset-stage-1": "",
+    "babel-plugin-transform-decorators": "",
+    "react": "",
+    "react-dom": "",
+    "mobx": "",
+    "mobx-react": "",
+    "sass-loader": "",
+    "css-loader": "",
+    "style-loader": "",
+    "file-loader": "",
+    "node-sass": "",
+    "extract-text-webpack-plugin": "",
+    "d3": "",
+    "datamaps": ""
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/webpack -d",
+    "dev": "./node_modules/.bin/webpack-dev-server --open"
+  }
+}

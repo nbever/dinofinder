@@ -1,0 +1,196 @@
+.cladogram-view {
+    
+    width: 100%;
+    height: 2000px;
+    overflow: auto;
+    position: relative;
+    
+    .time-parent {
+        @include flexbox();
+        @include justify-content( center );
+    }
+    
+    .time-scale{
+        position: relative;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        opacity: 0.5;
+        width: 600px;
+        
+        .time-scale-item {
+            position: absolute;
+            left: 0;
+            right: 0;
+            border: 1px solid;
+            border-radius: $common_border_radius;            
+            width: 200px;
+            
+            .inner-scale {
+                font-size: 18px;
+                text-align: center;
+                color: $dark_background;
+                font-family: 'handwriting';
+            }
+        }
+        
+        .epoch {
+            z-index: 4;
+            left: 400px;
+            background-color: $brown;
+        }
+        
+        .era {
+            z-index: 2;
+            background-color: $drab;
+        }
+        
+        .period {
+            z-index: 3;
+            left: 200px;
+            background-color: $highlight;
+        }
+    }
+}
+
+.cladogram-column {
+    
+    text-align: center;
+    width: 150px;
+    position: absolute;
+    transition: 200ms;
+    left: 0;
+    opacity: 0.0;
+    
+    .thumbnail {
+        z-index: 6;
+        height: 64px;
+        width: 64px;
+        color: $dark_background;
+        background-color: cadetblue;
+        border: 2px solid $drab;
+        border-radius: 40px;
+        background-size: 72px;
+        background-position-y: -20px;
+        cursor: pointer;
+        margin: auto;
+        position: relative;
+        transition: 500ms;
+        
+        &.leaf {
+            background-color: white;
+        }
+        
+        &:hover {
+            
+            .actions {
+                display: block;
+            }
+            
+            ~.connector {
+                border-color: red;
+                border-width: 5px;
+                
+                .connector-dot {
+                    background-color: red;
+                }
+            }
+        }
+    }
+    
+    .clad-name {
+        font-size: 28px;
+        margin: auto;
+        cursor: pointer;
+        position: relative;
+        transition: 500ms;
+    }
+    
+    .actions {
+        display: none;
+        width: 20px;
+        background-color: rgba( 255,255,255, 0.7 );
+        margin: auto;
+        border-radius: $common_border_radius;
+
+        .placeholder {
+            height: 22px;
+            width: 22px;
+        }
+        
+        [class^="icon-"], [class*=" icon-"] {
+            font-size: 22px;
+            color: $dark_background; 
+            opacity: 0.7;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 1.0;
+            }
+        }            
+    }
+    
+    .icon-info, .icon-minus {
+        position: absolute;
+        
+        right: -11px;
+        font-size: 22px;
+        color: $brown;
+        cursor: pointer;
+        
+        &:hover {
+            color: $light_background;
+        }
+    }
+    
+    .icon-info {
+        top: 42;
+    }
+    
+    .icon-minus {
+        top: 0;
+    }
+    
+    .connector {
+        position: absolute;
+        top: 36px;
+        left: 0px;
+        width: 0px;
+        border-top: 2px solid black;
+        transition: 200ms;
+        z-index: 0;
+        
+        .connector-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -6px;
+            border-radius: 6px;
+            background-color: black;
+        }
+    }
+    
+    .life-span {
+        margin: auto;
+        border: 1px solid $brown;
+        border-radius: $common_border_radius;
+        background-color: $light_background;
+        width: 25px;
+        position: absolute;
+        left: 62px;
+        z-index: 5;
+        opacity: 0.5;
+        transition: 150ms;
+        cursor: pointer;
+        
+        &:hover {
+            opacity: 1.0;
+            
+            ~.connector {
+                border-color: red;
+                border-width: 3px;
+            }
+        }
+    }
+}
