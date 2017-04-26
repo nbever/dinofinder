@@ -2,7 +2,7 @@ import DefaultHttpService from './default_http_service';
 
 class PaleoDB extends DefaultHttpService {
     
-    eolKey = '8239ccda0cde365a89da00592c3eda16389a64f6';
+    static eolKey = '8239ccda0cde365a89da00592c3eda16389a64f6';
     
     constructor(){
         super();
@@ -61,7 +61,7 @@ class PaleoDB extends DefaultHttpService {
            
             let n = encodeURI( name );
             
-            this.generic_call( `http://eol.org/api/search/1.0.json?q=${n}&page=1&exact=false&key=${this.eolKey}`, 'get' )
+            this.generic_call( `http://eol.org/api/search/1.0.json?q=${n}&page=1&exact=true&key=${PaleoDB.eolKey}`, 'get' )
             .then( (result) => {
 
 
@@ -70,9 +70,21 @@ class PaleoDB extends DefaultHttpService {
                     return;
                 }
 
-                let pageId = result.results[0].id;
+                let result_to_use = result.results.reduce( (item, winner) => {
+                    
+                    let winner_count = winner.content.split( ';' ).length;
+                    let item_count = item.content.split( ';' ).length;
+                    
+                    if ( item_count > winner_count ){
+                        winner = item;
+                    }
+                    
+                    return winner;
+                });
+                
+                let pageId = result_to_use.id;
 
-                this.generic_call( `http://eol.org/api/pages/1.0.json?batch=false&id=${pageId}&images_per_page=100&images_page=1&videos_per_page=10&videos_page=1&sounds_per_page=100&sounds_page=1&maps_per_page=0&maps_page=0&texts_per_page=100&texts_page=1&subjects=overview&licenses=all&details=true&common_names=true&synonyms=true&references=true&taxonomy=true&vetted=0&cache_ttl=&language=en&key=${this.eolKey}`, 'get').then( (result) => {
+                this.generic_call( `http://eol.org/api/pages/1.0.json?batch=false&id=${pageId}&images_per_page=100&images_page=1&videos_per_page=10&videos_page=1&sounds_per_page=100&sounds_page=1&maps_per_page=0&maps_page=0&texts_per_page=100&texts_page=1&subjects=overview&licenses=all&details=true&common_names=true&synonyms=true&references=true&taxonomy=true&vetted=0&cache_ttl=&language=en&key=${PaleoDB.eolKey}`, 'get').then( (result) => {
 
                     p_resolve( result );
                 });

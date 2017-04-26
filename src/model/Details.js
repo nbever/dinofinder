@@ -20,6 +20,10 @@ export class Details {
             
             r.initialize( d );
             
+            if ( r.type === undefined ){
+                return;
+            }
+            
             if ( r.type === 'text/html' ){
                 this.texts.push( r );
             }
