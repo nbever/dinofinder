@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {observer} from 'mobx-react';
-import Datamap from 'datamaps';
+import jQuery from 'jquery';
+import jvectormap from 'jvectormap';
+import world_mill from '../model/world_mill'
 
 @observer
 class FossilMap extends React.Component {
@@ -20,23 +22,19 @@ class FossilMap extends React.Component {
             return;
         }
         
-        let m = new Datamap({
-            element: this.map,
-            scope: 'world',
-            projection: 'mercator',
-            responsive: true
+        let m = {
+            map: 'world_mill' 
+        };
+        
+        
+        this.props.info.node.fossil_data.then( (fossil_data) => {
+            
+            m.markers = fossil_data.map( (fd) => {
+                return { name: fd.name + ': ' + fd.area, latLng: [fd.latitude, fd.longitude] } 
+            });
+           
+            $(this.map).vectorMap( m ); 
         });
-        
-        if ( this.props.info.node.fossil_data === undefined ){
-            return;
-        }
-        
-        let mungedData = this.props.info.node.fossil_data.map( (fd) => {
-            fd.radius = 10;
-            return fd;
-        });
-        
-        m.bubbles( mungedData );
     }
     
     render(){

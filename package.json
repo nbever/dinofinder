@@ -24,7 +24,7 @@
     "node-sass": "",
     "extract-text-webpack-plugin": "",
     "d3": "",
-    "datamaps": ""
+    "jvectormap": ""
   },
   "scripts": {
     "build": "./node_modules/.bin/webpack -d",

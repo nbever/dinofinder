@@ -130,18 +130,25 @@ export class CladogramNode {
      
     get fossil_data(){
         
-        if ( this._fossil_data === undefined ){
+        return new Promise( (resolve, reject) => {
             
-            PaleoDB.getFossilData( this.id ).then( (f_data) => {   
-                this._fossil_data = f_data.records.map( (occ, index) => {
-                    let f = new FossilOccurence();
-                    f.initialize( occ );
-                    return f;
+            if ( this._fossil_data === undefined ){
+
+                PaleoDB.getFossilData( this.id ).then( (f_data) => {   
+                    this._fossil_data = f_data.records.map( (occ, index) => {
+                        let f = new FossilOccurence();
+                        f.initialize( occ );
+                        return f;
+                    });
+                    
+                    resolve( this._fossil_data );
+                    return;
                 });
-            });
-        }
-        
-        return this._fossil_data;
+            }
+            else {
+                resolve( this._fossil_data );
+            }
+        });
     }
 
     get appearence(){

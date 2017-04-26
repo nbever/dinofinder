@@ -115,7 +115,7 @@ class InfoDialog extends Component {
                         <div onClick={ () => this.navigateTo( 'images' ) } className={ "nav-item icon-wallpaper " + ((this.props.viewState.infoItem.now_showing === 'images') ? 'selected' : '')}></div>
                         <div onClick={ () => this.navigateTo( 'videos' ) } className={ "nav-item icon-videocam " + ((this.props.viewState.infoItem.now_showing === 'videos') ? 'selected' : '')}></div>
                         <div onClick={ () => this.navigateTo( 'sounds' ) } className={ "nav-item icon-volume_up " + ((this.props.viewState.infoItem.now_showing === 'sounds') ? 'selected' : '')}></div>
-                        <div onClick={ () => this.navigateTo( 'map' ) } className={ "nav-item icon-world " + ((this.props.viewState.infoItem.now_showing === 'map') ? 'selected' : '')}></div>                        
+                        <div onClick={ () => this.navigateTo( 'map' ) } className={ "nav-item icon-map " + ((this.props.viewState.infoItem.now_showing === 'map') ? 'selected' : '')}></div>                        
                     </div>
                     <div className="info-text">
                         {texts}

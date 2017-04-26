@@ -34,6 +34,11 @@ body, div, p {
     background-color: $dark_background;
 }
 
+.jvectormap-container {
+    height:100%;
+    width:100%;
+}
+
 h1 {
     font: 24px 'handwriting';
     color: $dark_background;

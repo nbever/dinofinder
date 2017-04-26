@@ -1,4 +1,4 @@
-require( 'webpack' );
+const webpack = require( 'webpack' );
 const path = require( 'path' );
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -65,6 +65,10 @@ var config = {
     new HtmlWebpackPlugin({
       title: "DinoFinder",
       template: app_dir + '/index.html.ejs'
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery'
     }),
     extractSass
   ]
