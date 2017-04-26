@@ -39,6 +39,26 @@ body, div, p {
     width:100%;
 }
 
+.jvectormap-marker {
+    fill: $drab;
+    stroke: $dark_background;
+    r: 5;
+    
+    &:hover {
+        fill: $dark_background;
+    }
+}
+
+.jvectormap-tip {
+    font-size: 16px;
+    position: absolute;
+    z-index: 99;
+    color: $dark_background;
+    padding: 4px;
+    border-radius: $common_border_radius;
+    background-color: $light_background;
+}
+
 h1 {
     font: 24px 'handwriting';
     color: $dark_background;

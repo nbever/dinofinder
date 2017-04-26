@@ -30,9 +30,9 @@ class FossilMap extends React.Component {
         this.props.info.node.fossil_data.then( (fossil_data) => {
             
             m.markers = fossil_data.map( (fd) => {
-                return { name: fd.name + ': ' + fd.area, latLng: [fd.latitude, fd.longitude] } 
+                return { name: fd.name + ': ' + fd.area + ', ' + fd.country, latLng: [fd.latitude, fd.longitude] } 
             });
-           
+            
             $(this.map).vectorMap( m ); 
         });
     }
