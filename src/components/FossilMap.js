@@ -14,7 +14,6 @@ class FossilMap extends React.Component {
     }
 
     componentWillMount(){
-        this.props.info.node.fossil_data;
     }
 
     componentDidMount(){
@@ -40,7 +39,11 @@ class FossilMap extends React.Component {
     render(){
         
         return (
-            <div className="fossil-map" ref={ (elem) => this.mapElement( elem ) }></div>
+            <div className="fossil-map-parent">
+                <div className="fossil-map" ref={ (elem) => this.mapElement( elem ) }></div>
+                <div className="fossil-details-parent">
+                </div>
+            </div>
         );
     }
 }

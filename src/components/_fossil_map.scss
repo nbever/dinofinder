@@ -1,4 +1,20 @@
-.fossil-map {
+.fossil-map-parent {
     height: 100%;
     width: 100%;
+    position: relative;
+    
+    .fossil-map {
+        height: 100%;
+        width: 100%;
+    }
+    
+    .fossil-details-parent {
+        position: absolute;
+        right: 100%;
+        transition: 200ms;
+        
+        border-radius: $common_border_radius;
+        background-color: $light_background;
+        padding: 20px;
+    }
 }
